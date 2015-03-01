@@ -1,5 +1,5 @@
 {
-  "name": "httpServer",
+  "name": "httpS",
   "version": "1.0.0",
   "description": "jinc's http server",
   "main": "index.js",
@@ -15,5 +15,6 @@
     "server"
   ],
   "author": "jinc",
-  "license": "MIT"
+  "license": "MIT",
+  "private": true,
 }
