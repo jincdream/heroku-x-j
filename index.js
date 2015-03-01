@@ -32,6 +32,7 @@ server.http = function(req,res){
     res.end();
     return;
   }else {
+    if(path === '/')path += 'index.html'
     server.render(path,req,res);
   }
 };
