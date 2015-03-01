@@ -1,18 +1,21 @@
 {
   "name": "jinc",
   "version": "0.1.2",
-  "description": "A sample Node.js app using Express 4",
+  "description": "blog",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "private": true,
+  "dependencies": {
+    "iconv-lite":"0.4.x",
+    "mime": "1.3.x"
+  },
   "engines": {
     "node": "0.10.x"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://github.com/jincdream/heroku-x-j"
   },
   "keywords": [
     "node",
