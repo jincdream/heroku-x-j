@@ -38,7 +38,7 @@ server.http = function(req,res){
 console.log(dirName,' -http srver');
 
 
-server.readGbk = require('../readGbk');
+server.readGbk = require('./readGbk');
 
 server.checkGbk = function(string){
   return string.indexOf('�') >= 0
@@ -144,7 +144,6 @@ server.render = function(path,req,res){
 var hp = module.exports = function(port,gbk){
   server.gbk = gbk || 'utf-8'
   require('http').createServer(server.http).listen(port);
-  console.log(host+ ':' + port);
   return server
 }
 // iconv.undoExtendNodeEncodings();
