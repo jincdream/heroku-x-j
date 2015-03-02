@@ -35,7 +35,7 @@ server.http = function(req,res){
     res.end();
     return;
   }else {
-    if(path === '/')path += 'wwww/index.html'
+    if(path === '/')path += 'index.html'
     server.render('www/' + path,req,res);
   }
 };
