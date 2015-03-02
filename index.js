@@ -35,8 +35,8 @@ server.http = function(req,res){
     res.end();
     return;
   }else {
-    if(path === '/')path += 'index.html'
-    server.render(path,req,res);
+    if(path === '/')path += 'wwww/index.html'
+    server.render('www/' + path,req,res);
   }
 };
 console.log(dirName,' -http srver');
@@ -164,10 +164,3 @@ readDir('./markSrc/',[],function(_path){
 })
 
 hp(p)
-
-
-fs.readFile('./README.md',function(err,data){
-  fs.writeFile('./www/README.html',require('./markdown')(data.toString()),function(err){
-    if(err)throw err
-  })
-})
