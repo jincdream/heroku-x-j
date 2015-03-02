@@ -1,5 +1,7 @@
 # node-js-getting-started
 
+是大大大我谁是谁爱**上**
+
 A barebones Node.js app using [Express 4](http://expressjs.com/).
 
 This application support the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
@@ -15,7 +17,9 @@ $ npm install
 $ npm start
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+Your app **should** now be running on [localhost:5000](http://localhost:5000/).
+
+![sss](http://img4q.duitang.com/uploads/item/201210/21/20121021095857_RfXsK.jpeg)
 
 ## Deploying to Heroku
 
@@ -45,6 +49,6 @@ For more information about using Node.js on Heroku, see these Dev Center article
 
 jjijiji
 
-jjiiiwww
+jjiiiw `ww`
 
 jjiiiwwwdd
