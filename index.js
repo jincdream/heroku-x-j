@@ -32,8 +32,8 @@ server.http = function(req,res){
     res.end();
     return;
   }else {
-    if(path === '/')path += 'index.html'
-    server.render(path,req,res);
+    if(path === '/')path += 'www/index.html'
+    server.render('www/' + path,req,res);
   }
 };
 console.log(dirName,' -http srver');
