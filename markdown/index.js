@@ -1,4 +1,4 @@
-var build = function(str){
+var build = module.exports = function(str){
   var h1 = {
     reg:/((\n)\#|^\#)([^#].*?)(\n\n|\n$)/g,
     html: '$2<h1 class="title1">$3</h1>$4'
@@ -10,7 +10,6 @@ var build = function(str){
   var p = {
     reg: /\n\n+?(([^\#^\`^\-^\<])[\s\S^\n]*?)(\n)/g,
     html: function(m,a,c,b){
-      console.log(c);
       return '\n\n<p class="line">'+a+'</p>' + b
     }
   }
@@ -30,7 +29,6 @@ var build = function(str){
   var ol = {
     reg: /(\n\n\-|^\-)\s([\s\S])*?(\n\n|\n$)/mg,
     html: function(m,a,txt,n){
-      console.log(m,'mmmmmmmmmmmm');
       var rez = m.replace(/\-([\S\s]*?)\n/g,'\t<li>$1</li>\n')
       return '\n\n<ol class="items">'+ rez +'</ol>' + n
     }
@@ -56,7 +54,6 @@ var build = function(str){
   var p = {
     reg: /((^[^\#^\`^\-^\<])[\s\S^\n]*)/,
     html: function(m,a,c,b){
-      console.log(c);
       return '<p class="line">'+a+'</p>'
     }
   }
@@ -84,7 +81,6 @@ var build = function(str){
   var rez = str.replace(/\r\n?/g, "\n")
                .split('\n\n')
                .map(function(v,i,a){
-                 console.log(v);
                   return v.replace(title.reg,title.html)
                           .replace(p.reg,p.html)
                           .replace(ol.reg,ol.html)
@@ -103,13 +99,6 @@ var build = function(str){
               //  .replace(h1.reg,h1.html)
               //  .replace(h2.reg,h2.html)
   // var rez = str.split(/\r/)
-  console.log(rez);
-  return rez
+
+  return require('fs').readFileSync(require('path').join(__dirname,'./mod.html')).toString().replace(/{{markdown}}/g,rez);
 }
-var fs = require('fs')
-fs.readFile('./README.md',function(err,data){
-  build(data.toString())
-  fs.writeFile('./README.html',build(data.toString()),function(err){
-    if(err)throw err
-  })
-})

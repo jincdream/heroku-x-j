@@ -9,6 +9,9 @@ var dirName = ph.resolve()
 var gbk = {gbk:!1}
 var mid = []
 var lst = new require('events').EventEmitter
+var readDir = require('./readdirSync');
+var markdown = require('./markdown')
+
 server.http = function(req,res){
     /**
     * url obj
@@ -149,4 +152,22 @@ var hp = module.exports = function(port,gbk){
 }
 // iconv.undoExtendNodeEncodings();
 // console.log(process.argv[1]);
+readDir('./markSrc/',[],function(_path){
+  var f = ph.basename(_path)
+  var output = ph.join(_path,'../../','./www/')+f
+  console.log(_path);
+  console.log(output);
+  fs.readFile(_path,function readMarkSrc(err,data){
+    fs.writeFile(output,markdown(data.toString()),function writeMarkSrc(err){
+    })
+  })
+})
+
 hp(p)
+
+
+fs.readFile('./README.md',function(err,data){
+  fs.writeFile('./www/README.html',require('./markdown')(data.toString()),function(err){
+    if(err)throw err
+  })
+})
