@@ -154,7 +154,7 @@ var hp = module.exports = function(port,gbk){
 // console.log(process.argv[1]);
 readDir('./markSrc/',[],function(_path){
   var f = ph.basename(_path)
-  var output = ph.join(_path,'../../','./www/')+f
+  var output = ph.join(_path,'../../','./www/')+f.replace(/\.md$/,'.html')
   console.log(_path);
   console.log(output);
   fs.readFile(_path,function readMarkSrc(err,data){
